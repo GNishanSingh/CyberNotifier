@@ -1,0 +1,25 @@
+{
+  "NotifyConfig": [
+    {
+      "Name": "MalwareTrafficAnalysis",
+      "URL": "https://www.malware-traffic-analysis.net/blog-entries.rss",
+      "Type": "RSS"
+    },
+    {
+      "Name": "BeepingComputer",
+      "URL": "https://www.bleepingcomputer.com/feed/",
+      "Type": "RSS"
+    },
+    {
+      "Name": "CISABlog",
+      "URL": "https://www.cisa.gov/blog.xml",
+      "Type": "RSS"
+    }
+  ],
+  "SupportedType": [
+    {
+      "Name": "RSS",
+      "Function": "RSSFeed"
+    }
+  ]
+}

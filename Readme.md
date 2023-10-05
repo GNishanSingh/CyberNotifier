@@ -1,0 +1,4 @@
+# CyberNotifier
+In rapid growing internet, it's very difficult to track the news and article posted over the internet. There are millions of sites and checking those everyday is tough. For solving this issue, i have build the application which help you solve this problem. This application provide interface where you can configuration RSS feed of blogs and cybernotifier will provide the notification on you machine on frequently basis with new articles posted by configured sources.
+## How does it Work ?
+CyberNotifier have very simple interface where you need to provide RSS feed details like Name and URL. On saving the provided details, it store the configuration and provide Windows toast notification whenver new things show up in configured sources. Below video can help you to configure the CyberNotifier.
