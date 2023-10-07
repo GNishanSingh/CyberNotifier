@@ -1,5 +1,5 @@
 # CyberNotifier
-In rapid growing internet, it's very difficult to track the news and article posted over the internet. There are millions of sites and checking those everyday is tough. For solving this issue, i have build the application which help you solve this problem. This application provide interface where you can configuration RSS feed of blogs and cybernotifier will provide the notification on you machine on frequently basis with new articles posted by configured sources.
+CyberNotifier is an innovative project designed to enhance your online reading and research experience by simplifying the process of monitoring RSS feeds from various blogs and websites. This handy tool provides real-time updates and delivers them directly to your Windows desktop through convenient toast notifications.
 ## Installation
 Follow the below instruction for installation
 1. Download zip file from this project release.
