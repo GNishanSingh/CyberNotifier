@@ -5,7 +5,15 @@
 # Description   : This tools help you track the cyber communitiies with new contents and show you as notification on you desktop
 
 # Bell icon embeded
-$presentlocation = split-path -parent $MyInvocation.MyCommand.Definition
+if ($MyInvocation.MyCommand.CommandType -eq "ExternalScript")
+{
+	$presentlocation = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
+}
+else
+{
+	$presentlocation = Split-Path -Parent -Path ([Environment]::GetCommandLineArgs()[0])
+}
+
 $cyberconfig = Get-Content (join-path $presentlocation "etc\CyberNotifier.json") | ConvertFrom-Json
 $bellicon = 'iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAApdJREFUaEPtmU3ITVEUhp/PTzJjYCDJp5goAyEjJT/1SclAiqlISZGMlN+ZhPpSGJiZYCQpCRkppBRFRCgDIzJQ8tdb+0a345y11tn73j6dNbmTtd53vXudvfZe+44wwW1kgudPJ2DYFewq8D9XYCdwLAk8ApwrIbbUJzQHeAtMTkn/BBYCr3OLyC1gCbARWAOs7Ev2PnALuA48zCUkl4BVwElgqTGxJ8CBJMgYUu3WVsAk4AywJ5jFeWA38CMY3+ogk/hLwNYoeYq7CmwBfkVw2lRgL3A6QloRsx84FcGKCpgLvASmRUgrYr4BC4D3XryogBNpE3r56vzVBLSxXRYRMAX4CMx0MTU7fwJmAd+bXf94RAQsy9nH+5JdDjwqLWBfdMMZEhO22rLZIhVQ79Y9p4QJe5cHOCLgCrDZQ+LwFbbOBLNFBNwGVpsZfI7CXusJiQjQRUwbuYRpA2sjmy0i4BmwyMzgc3wKLPaERAToTj/fQ+LwfZXmBnNIRMAHYLaZwecobA1DZvMK0Cn8FdBvCdMpPN1zGnsFjAJvSmT+F+Y84J2VwytA7VOtrqRpHL1jJfAKOAQctYIH/cRx3BrrFXAX0Pxb0u55ODwCNHC8ADQHlzSNljpnnltIPAIuADssoBl8LgLbLThWAeuAm9DqEcCST89HVVifOGvjLAL0WKWuMMOTQQbfz+nS+LgOq0mAVv7yEJLv5fwF2JZe8yp11AnQ934WmJphNdtA6NFLk9p4FUhTBdoQDyS2E9C3zHp53tCw9O6pq80m9n4GY8CNmnar9rgJuOYF/pd/iU/oYLrLVGHrH5vDuZIXTgkBwtWfG0p0ReJ4kETpLpXVSgnImuQg98DAEu8RdRUY+JL3EXYVGHYFfgM9xVQxt5AARgAAAABJRU5ErkJggg=='
 $iconimageBytes = [Convert]::FromBase64String($bellicon)
@@ -38,9 +46,6 @@ Author    : Gurmukhnishan Singh
 Email     : info@gurmukhnishansingh.me
 "@, "CyberNotifier", "OK", "Information") | Out-Null
     })
-# form menu update check item
-$chkup = New-Object System.Windows.Forms.ToolStripMenuItem
-$chkup.Text = "Check for Update"
 # existing configuration group
 $gp1 = New-Object System.Windows.Forms.GroupBox
 $gp1.Text = "Existing Configuration"
@@ -220,7 +225,7 @@ $gp4lab3but.Add_TextChanged({
     })
 
 $gp1.Controls.AddRange(@($notifydd, $edit, $del)) | Out-Null
-$notmenuitem1.DropDownItems.AddRange(@($about, $chkup)) | Out-Null
+$notmenuitem1.DropDownItems.AddRange(@($about)) | Out-Null
 $notmenu.Items.Add($notmenuitem1) | Out-Null
 $NotifyForm.Controls.AddRange(@($notmenu, $gp1, $notadd, $gp2, $gp3, $gp4)) | Out-Null
 $gp2.Controls.AddRange(@($lab1, $lab1value))
