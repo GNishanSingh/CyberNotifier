@@ -17,3 +17,4 @@ For uninstallation run the following command
 ```PowerShell
 .\Uninstall-CyberNotifier.ps1
 ```
+For More details about adding and removing feeds, please check the wiki page of this project
